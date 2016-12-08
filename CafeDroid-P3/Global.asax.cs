@@ -6,6 +6,9 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
+using System.Data.Entity;
+using CafeDroid_P3.Models;
+
 
 namespace CafeDroid_P3
 {
@@ -16,6 +19,9 @@ namespace CafeDroid_P3
             // Code that runs on application startup
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            // Initialize the product database.
+            Database.SetInitializer(new ProductDatabaseInitializer());
         }
     }
 }
