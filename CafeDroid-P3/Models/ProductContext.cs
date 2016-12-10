@@ -9,5 +9,6 @@ namespace CafeDroid_P3.Models
         }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<CartItem> ShoppingCartItems { get; set; }
     }
 }

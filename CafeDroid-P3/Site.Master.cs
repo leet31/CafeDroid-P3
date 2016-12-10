@@ -9,6 +9,7 @@ using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
 using System.Linq;
 using CafeDroid_P3.Models;
+using CafeDroid_P3.Logic;
 
 namespace CafeDroid_P3
 {
@@ -72,6 +73,15 @@ namespace CafeDroid_P3
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+
+        protected void Page_PreRender(object sender, EventArgs e)
+        {
+            using (ShoppingCartActions usersShoppingCart = new ShoppingCartActions())
+            {
+                string cartStr = string.Format("Cart ({0})", usersShoppingCart.GetCount());
+                cartCount.InnerText = cartStr;
+            }
         }
 
         public IQueryable<Category> GetCategories()
